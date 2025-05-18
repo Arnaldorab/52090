@@ -1,0 +1,2 @@
+mientras 5=9 
+imprimir  correcto;
