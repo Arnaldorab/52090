@@ -1,0 +1,25 @@
+programa: instruccion*
+;
+instruccion: bucle 
+    | salida 
+;
+bucle: 'mientras' condicion '{' instruccion* '}' 
+;
+salida: 'imprimir' '(' cadena ')' ';' 
+;
+condicion: 'verdadero' 
+    | 'falso' 
+;
+cadena: '"' caracter* '"' 
+;
+caracter: letra 
+    | digito
+    | ' '
+    | simbolo 
+;
+letra: ID 
+;
+digito: INT 
+;
+simbolo: '.' | ',' | '!' | '?' | ':' | ';' 
+;
