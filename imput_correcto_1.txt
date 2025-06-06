@@ -1,3 +1,0 @@
-mientras verdadero {
-  imprimir("funciona");
-}
