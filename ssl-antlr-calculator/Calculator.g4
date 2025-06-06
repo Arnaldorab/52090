@@ -1,0 +1,40 @@
+grammar Calculator;
+
+regex: term ('|' regex)? ;
+
+term: factor+ ;
+
+factor: base quantifier? ;
+
+base: char
+    | group
+    | charClass ;
+
+group: '(' regex ')' ;
+
+charClass: '[' '^'? (range | char)* ']' ;
+
+range: char '-' char ;
+
+quantifier: '*'
+    | '+'
+    | '?'
+    | '{' INT (',' INT?)? '}' ;
+
+char: CHAR ;
+
+CHAR: '\\' . 
+    | ~[|*+?(){}[\]\\ \r\n\t]
+ ;
+//Lexemas
+MUL : '*';
+DIV : '/';
+ADD : '+';
+SUB : '-';
+EQ: '=';
+ID : [a-zA-Z]+;
+INT : [0-9];
+LPAREN : '(';
+RPAREN : ')';
+NEWLINE:'\r'? '\n';
+WS: [ \t]+ -> skip;
